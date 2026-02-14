@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ringfence — Achieve Your Financial Fitness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --daily: #FF6B6B;
+            --weekly: #45B7D1;
+            --monthly: #6C5CE7;
+            --bg: #0D0D1A;
+            --surface: #16162A;
+            --surface-raised: #1E1E36;
+            --text: #E8E8F0;
+            --text-muted: #9090A8;
+            --accent-green: #2ECC71;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            background: radial-gradient(ellipse at 50% 80%, rgba(108, 92, 231, 0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 30% 20%, rgba(69, 183, 209, 0.1) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 30%, rgba(255, 107, 107, 0.08) 0%, transparent 50%);
+        }
+
+        .hero-rings {
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--daily), var(--weekly), var(--monthly));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: var(--text-muted);
+            max-width: 540px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 2rem;
+            background: linear-gradient(135deg, var(--monthly), #8B7CF7);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 14px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 24px rgba(108, 92, 231, 0.35);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(108, 92, 231, 0.5);
+        }
+
+        .cta-button svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .price-tag {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .price-tag strong {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* ── Ring SVG animation ── */
+        .ring-circle {
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        .ring-daily {
+            stroke: var(--daily);
+            animation: ringPulse 4s ease-in-out infinite;
+        }
+
+        .ring-weekly {
+            stroke: var(--weekly);
+            animation: ringPulse 4s ease-in-out 0.5s infinite;
+        }
+
+        .ring-monthly {
+            stroke: var(--monthly);
+            animation: ringPulse 4s ease-in-out 1s infinite;
+        }
+
+        @keyframes ringPulse {
+            0%, 100% { opacity: 0.85; }
+            50% { opacity: 1; }
+        }
+
+        .ring-bg {
+            fill: none;
+            opacity: 0.12;
+        }
+
+        /* ── Story Section ── */
+        .story {
+            padding: 5rem 2rem 4rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .story h2 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .story-body {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .story-body p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--text-muted);
+        }
+
+        .story-body p strong {
+            color: var(--text);
+        }
+
+        .story-body .highlight {
+            color: var(--text);
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.6;
+            text-align: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .story-body .highlight span.ring-text-daily { color: var(--daily); }
+        .story-body .highlight span.ring-text-weekly { color: var(--weekly); }
+        .story-body .highlight span.ring-text-monthly { color: var(--monthly); }
+
+        /* ── Principles (Why section) ── */
+        .principles {
+            padding: 3rem 2rem 5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .principles h2 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .principle-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .principle {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .principle-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .principle:nth-child(1) .principle-icon { background: rgba(255, 107, 107, 0.12); }
+        .principle:nth-child(2) .principle-icon { background: rgba(46, 204, 113, 0.12); }
+        .principle:nth-child(3) .principle-icon { background: rgba(69, 183, 209, 0.12); }
+        .principle:nth-child(4) .principle-icon { background: rgba(108, 92, 231, 0.12); }
+
+        .principle h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .principle p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ── Features ── */
+        .features {
+            padding: 4rem 2rem 5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+            padding: 2rem 1.5rem;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card:nth-child(1) .feature-icon { background: rgba(255, 107, 107, 0.15); }
+        .feature-card:nth-child(2) .feature-icon { background: rgba(69, 183, 209, 0.15); }
+        .feature-card:nth-child(3) .feature-icon { background: rgba(108, 92, 231, 0.15); }
+        .feature-card:nth-child(4) .feature-icon { background: rgba(46, 204, 113, 0.12); }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.55;
+        }
+
+        /* ── Pricing callout ── */
+        .pricing {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .pricing-card {
+            max-width: 480px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+        }
+
+        .pricing-card .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-card .price-label {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card .price-label strong {
+            color: var(--text);
+        }
+
+        .pricing-card .no-sub {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--accent-green);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.03em;
+        }
+
+        .pricing-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        /* ── Footer CTA ── */
+        .footer-cta {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(108, 92, 231, 0.08) 100%);
+        }
+
+        .footer-cta h2 {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-cta p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* ── Scroll animations ── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .principle {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .story {
+                padding: 3rem 1.5rem 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-rings">
+            <svg width="220" height="220" viewBox="0 0 220 220">
+                <circle class="ring-bg" cx="110" cy="110" r="95" stroke="#FF6B6B" stroke-width="10"/>
+                <circle class="ring-bg" cx="110" cy="110" r="72" stroke="#45B7D1" stroke-width="10"/>
+                <circle class="ring-bg" cx="110" cy="110" r="49" stroke="#6C5CE7" stroke-width="10"/>
+                <circle class="ring-circle ring-daily"
+                    cx="110" cy="110" r="95"
+                    stroke-width="10"
+                    stroke-dasharray="597"
+                    stroke-dashoffset="180"
+                    transform="rotate(-90 110 110)"/>
+                <circle class="ring-circle ring-weekly"
+                    cx="110" cy="110" r="72"
+                    stroke-width="10"
+                    stroke-dasharray="452"
+                    stroke-dashoffset="200"
+                    transform="rotate(-90 110 110)"/>
+                <circle class="ring-circle ring-monthly"
+                    cx="110" cy="110" r="49"
+                    stroke-width="10"
+                    stroke-dasharray="308"
+                    stroke-dashoffset="150"
+                    transform="rotate(-90 110 110)"/>
+            </svg>
+        </div>
+        <h1>Ringfence</h1>
+        <p class="tagline">Achieve Your Financial Fitness</p>
+        <p class="subtitle">If closing fitness rings got you in shape, imagine what opening financial rings can do for your wallet.</p>
+        <div class="cta-group">
+            <a href="https://apps.apple.com" class="cta-button">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Download — $7
+            </a>
+            <span class="price-tag"><strong>One-time purchase.</strong> No subscriptions. Ever.</span>
+        </div>
+    </section>
+
+    <!-- The Story -->
+    <section class="story">
+        <h2 class="fade-in">Why I Built This</h2>
+        <div class="story-body">
+            <p class="fade-in">
+                I tried every budgeting app out there. Spreadsheets, envelope systems, apps with monthly fees.
+                None of them stuck. But something else in my life did stick — <strong>my fitness rings</strong>.
+            </p>
+            <p class="fade-in">
+                After diligently closing my Apple Watch rings day after day, my physical fitness improved considerably.
+                The simple act of watching a ring fill up gave me the motivation to keep going, keep moving, keep
+                showing up. And one day it hit me:
+            </p>
+            <p class="highlight fade-in">
+                If rings can make me physically fit, why can't they make me financially fit?
+            </p>
+            <p class="fade-in">
+                So I built Ringfence — for myself, first. Three rings for
+                <span class="ring-text-daily" style="color: var(--daily); font-weight: 600;">daily</span>,
+                <span class="ring-text-weekly" style="color: var(--weekly); font-weight: 600;">weekly</span>, and
+                <span class="ring-text-monthly" style="color: var(--monthly); font-weight: 600;">monthly</span>
+                budgets. But with a twist: <strong>you don't want to close these rings.</strong>
+                The more open your rings stay, the less you've spent, and the healthier your finances are.
+            </p>
+            <p class="fade-in">
+                It's a small shift in thinking that makes a big difference. Every time I glance at
+                those open rings, I feel the same satisfaction I get from closing my fitness ones.
+            </p>
+        </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="principles">
+        <h2 class="fade-in">Built on Principles, Not Profit</h2>
+        <div class="principle-list">
+            <div class="principle fade-in">
+                <div class="principle-icon">⊘</div>
+                <div>
+                    <h3>No Subscriptions</h3>
+                    <p>Charging a monthly fee to someone who is trying to save money? That's backwards. Ringfence is a one-time $7 purchase. You pay once, you own it. I'm trying to move away from subscriptions myself — I wouldn't ask you to sign up for another one.</p>
+                </div>
+            </div>
+            <div class="principle fade-in">
+                <div class="principle-icon">⊙</div>
+                <div>
+                    <h3>No Backend Servers</h3>
+                    <p>Your financial data never leaves your device. There is no cloud, no account to create, no server storing your transactions. Honestly? I wouldn't trust a small indie developer with my financial data on their servers. So I didn't build it that way.</p>
+                </div>
+            </div>
+            <div class="principle fade-in">
+                <div class="principle-icon">◎</div>
+                <div>
+                    <h3>Built for Myself First</h3>
+                    <p>This isn't a product designed by committee or shaped by focus groups. I built the app I wanted to use every day. Every feature exists because I needed it, not because it tested well in a survey.</p>
+                </div>
+            </div>
+            <div class="principle fade-in">
+                <div class="principle-icon">◉</div>
+                <div>
+                    <h3>Keep It Simple</h3>
+                    <p>Three rings. Your spending. That's it. No social feeds, no gamification gimmicks, no AI-generated "insights" telling you to buy less coffee. Just a clear, honest picture of where your money goes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <h2 class="fade-in">What You Get</h2>
+        <div class="feature-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">◎</div>
+                <h3>Triple-Ring Budgets</h3>
+                <p>Track daily, weekly, and monthly spending at a glance. Three concentric rings give you instant clarity — lower is better.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎙</div>
+                <h3>Voice &amp; Receipt Input</h3>
+                <p>Say "spent $12 at the grocery store" or scan a receipt. Adding expenses takes seconds, not minutes.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">↻</div>
+                <h3>Recurring Expenses</h3>
+                <p>Set up subscriptions and bills once. Ringfence tracks them automatically so nothing sneaks past your budget.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🔒</div>
+                <h3>Face ID Protected</h3>
+                <p>Your financial data is locked behind biometric authentication. No one sees your numbers but you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="pricing-card fade-in">
+            <div class="no-sub">NO SUBSCRIPTION</div>
+            <div class="price">$7</div>
+            <div class="price-label"><strong>One-time purchase.</strong> Yours forever.</div>
+            <p>Every feature, every update. No tiers, no premium upgrades, no "unlock for $4.99/month." You pay once and that's it.</p>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+        <h2 class="fade-in">Start Your Financial Fitness Journey</h2>
+        <p class="fade-in">Keep your rings open. Keep your money in your pocket.</p>
+        <a href="https://apps.apple.com" class="cta-button fade-in">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.5 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download on the App Store
+        </a>
+    </section>
+
+    <footer>
+        &copy; 2025 Ringfence. All rights reserved.
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const rings = document.querySelectorAll('.ring-circle');
+            rings.forEach((ring, i) => {
+                const finalOffset = ring.getAttribute('stroke-dashoffset');
+                const totalLength = ring.getAttribute('stroke-dasharray');
+                ring.style.strokeDashoffset = totalLength;
+                ring.style.transition = `stroke-dashoffset 1.2s ease ${0.2 + i * 0.2}s`;
+                requestAnimationFrame(() => {
+                    ring.style.strokeDashoffset = finalOffset;
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
