@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — Ringfence</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --daily: #ff6b6b;
+        --weekly: #45b7d1;
+        --monthly: #6c5ce7;
+        --bg: #0d0d1a;
+        --surface: #16162a;
+        --text: #e8e8f0;
+        --text-muted: #9090a8;
+        --accent-green: #2ecc71;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+          Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--daily),
+          var(--weekly),
+          var(--monthly)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .last-updated {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 3rem;
+      }
+
+      .tldr {
+        background: var(--surface);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 18px;
+        padding: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .tldr h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--accent-green);
+      }
+
+      .tldr p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--text);
+      }
+
+      h2 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-top: 2.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.75;
+        margin-bottom: 1rem;
+      }
+
+      p strong {
+        color: var(--text);
+      }
+
+      ul {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.75;
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      a {
+        color: var(--weekly);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      .back-link:hover {
+        color: var(--text);
+      }
+
+      footer {
+        text-align: center;
+        padding: 3rem 2rem 2rem;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        margin-top: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="index.html" class="back-link">&larr; Back to Ringfence</a>
+
+      <h1>Privacy Policy</h1>
+      <p class="last-updated">Last updated: 29 March 2026</p>
+
+      <div class="tldr">
+        <h2>The Short Version</h2>
+        <p>
+          Your data stays on your device. It never leaves. We don't collect,
+          store, or transmit any of your information. That's it.
+        </p>
+      </div>
+
+      <h2>No Data Collection</h2>
+      <p>
+        Ringfence does <strong>not</strong> collect any personal information.
+        Your transactions, budgets, categories, and all financial data are
+        stored <strong>exclusively on your device</strong> using Apple's
+        on-device storage. There are no servers, no cloud databases, no
+        accounts.
+      </p>
+
+      <h2>No Analytics or Tracking</h2>
+      <p>
+        We do not use any analytics services, tracking pixels, or third-party
+        SDKs that collect data. We have no idea how you use the app, and we
+        prefer it that way.
+      </p>
+
+      <h2>No Network Requests</h2>
+      <p>
+        Ringfence does not make network requests to external servers. Your
+        financial data never leaves your device. There is no backend, no API, no
+        cloud sync.
+      </p>
+
+      <h2>On-Device Processing</h2>
+      <p>Everything happens on your device:</p>
+      <ul>
+        <li>Transaction storage and budgets</li>
+        <li>Voice input processing</li>
+        <li>Receipt scanning</li>
+        <li>Notifications and reminders</li>
+      </ul>
+
+      <h2>Biometric Authentication</h2>
+      <p>
+        If you enable Face ID or Touch ID, authentication is handled entirely by
+        Apple's on-device biometric system. Ringfence never has access to your
+        biometric data.
+      </p>
+
+      <h2>Photos and Camera</h2>
+      <p>
+        If you choose to scan a receipt, Ringfence requests access to your
+        camera or photo library. Images are processed on-device and are not
+        uploaded or transmitted anywhere.
+      </p>
+
+      <h2>Notifications</h2>
+      <p>
+        If you enable notifications, they are scheduled locally on your device.
+        No push notification servers are involved.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        If this policy ever changes, it will be updated on this page. But
+        honestly, the core principle will always be the same:
+        <strong
+          >your data is yours, it stays on your device, and we don't want
+          it.</strong
+        >
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        If you have questions about this privacy policy, reach out at
+        <a href="mailto:contact@ringfence.money">contact@ringfence.money</a>.
+      </p>
+    </div>
+
+    <footer>&copy; 2025 Ringfence. All rights reserved.</footer>
+  </body>
+</html>
