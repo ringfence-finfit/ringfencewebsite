@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Ringfence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --daily: #FF6B6B;
+            --weekly: #45B7D1;
+            --monthly: #6C5CE7;
+            --bg: #0D0D1A;
+            --surface: #16162A;
+            --text: #E8E8F0;
+            --text-muted: #9090A8;
+            --accent-green: #2ECC71;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--daily), var(--weekly), var(--monthly));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .intro {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .contact-card:nth-child(1) .contact-icon { background: rgba(69, 183, 209, 0.12); }
+        .contact-card:nth-child(2) .contact-icon { background: rgba(108, 92, 231, 0.12); }
+
+        .contact-card h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-card a {
+            color: var(--weekly);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        h2.section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .faq-item p strong {
+            color: var(--text);
+        }
+
+        a.back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        a.back-link:hover {
+            color: var(--text);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--text);
+        }
+
+        @media (max-width: 600px) {
+            .contact-card {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Ringfence</a>
+
+        <h1>Support</h1>
+        <p class="intro">Need help with Ringfence? You're in the right place. This is a one-person project, so you'll hear back from the person who actually built the app.</p>
+
+        <div class="contact-card">
+            <div class="contact-icon">&#9993;</div>
+            <div>
+                <h2>Email Support</h2>
+                <p>For bug reports, feature requests, or any questions about the app.</p>
+                <a href="mailto:contact@ringfence.money">contact@ringfence.money</a>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-icon">&#9201;</div>
+            <div>
+                <h2>Response Time</h2>
+                <p>I typically respond within 24-48 hours. Include your iOS version and a description of the issue to help me help you faster.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>Where is my data stored?</h3>
+            <p>All your data is stored <strong>locally on your device</strong>. There are no servers, no cloud sync, and no accounts. Your financial data never leaves your phone.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I transfer my data to a new phone?</h3>
+            <p>Yes. When you restore from an iCloud or local backup during device setup, your Ringfence data transfers automatically since it's part of your device's app data.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do the three rings work?</h3>
+            <p>Each ring tracks a different budget period: <strong>daily</strong>, <strong>weekly</strong>, and <strong>monthly</strong>. Unlike fitness rings, you want these to stay open. The less they fill up, the less you've spent.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I choose which categories count toward each ring?</h3>
+            <p>Yes. Each spending category can be assigned to one or more budget periods. For example, you might only track food in your daily ring, while rent only counts toward monthly.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Will there be a subscription later?</h3>
+            <p><strong>No.</strong> Ringfence is a one-time purchase. No subscriptions, no in-app purchases, no premium tiers. You pay once and own it.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>I found a bug. What should I include in my report?</h3>
+            <p>Please email <a href="mailto:contact@ringfence.money">contact@ringfence.money</a> with your iOS version, what you expected to happen, and what actually happened. Screenshots are always helpful.</p>
+        </div>
+    </div>
+
+    <footer>
+        <a href="privacy.html">Privacy Policy</a> &middot; <a href="support.html">Support</a>
+        <br>&copy; 2025 Ringfence. All rights reserved.
+    </footer>
+
+</body>
+</html>
